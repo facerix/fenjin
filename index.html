@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fenjin</title>
+    <!--link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico"/-->
+    <link rel="stylesheet" href="/fonts/minotaur/stylesheet.css" type="text/css" charset="utf-8">
+    <link rel='stylesheet' href='css/demo.css'/>
+    <style type="text/css">
+        .content {
+            width: 330px;
+        }
+
+        #messages {
+            font: 8pt 'MinotaurPhatte', Arial, sans-serif;
+            background-color: black;
+            color: white;
+            padding: 10px;
+
+            position: absolute;
+            bottom: 0;
+
+            height: 133px; width: 248px;
+        }
+
+        .gameWindow {
+            width: 320px; height: 240px;
+            margin: 0 auto;
+        }
+
+        .gameWindow > canvas {
+            top: 0; left: 0;
+        }
+    </style>
+</head>
+<body>
+    <header><h1>Fenjin</h1></header>
+
+    <section class="content">
+        <div class="main gameWindow">
+            <canvas id="stageCanvas" width="320" height="240"></canvas>
+            <canvas id="spriteCanvas" width="320" height="240"></canvas>
+        </div>
+
+        <div class="controls">
+            <span class="buttons">
+                <button onclick="nosound_onclick();">Mute</button>
+                <button onclick="game.reset();">Reset</button>
+            </span>
+        </div>
+
+        <div id="throbber"><img src="res/wait.gif" /><br/>Loading resources...</div>
+
+        <aside class="notes">
+            <p>Fenjin is intended to be a full-featured Fighting Game Engine at some point in the future.
+            Currently, it's just a demo of some of the core underpinning classes, like the Preloader, Sprite animation, etc.</p>
+            <p>Controls:<br/> arrow keys to move (no physics engine yet)<br/>
+            Weak punch: A &ndash;
+            Medium punch: S &ndash;
+            Hard punch: D<br/>
+            Weak kick: Z &ndash;
+            Medium kick: X &ndash;
+            Hard kick: C
+        </aside>
+
+    </section>
+
+    <footer id="infoPane">
+        <span rel="me" class="sig">Coded by <a href="http://buyog.com">Buyog</a></span>
+        <span class="copy"></span>
+    </footer>
+</body>
+
+<script data-dojo-config="parseOnLoad: false, isDebug: false, modulePaths:{ 'fen': '/fenjin/js/fen' }"
+    src="http://o.aolcdn.com/dojo/1.6/dojo/dojo.js"></script>
+    <!--src="/js/dojo-release-1.6.1-src/dojo/dojo.js"></script-->
+<script src="js/main.js"></script>
+</html>
