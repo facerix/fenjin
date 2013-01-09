@@ -41,16 +41,25 @@ h2 {
     font: 24px/22px 'MinotaurPhatte', Arial, sans-serif;
 
     position: relative;
-    left: 0; top: -180px;
+    left: 0; top: -200px;
     width: auto;
-    padding: 20px 0; margin: 0;
+    padding: 20px 0; margin: 0 20px -80px;
     text-align: center;
 
     /*box-shadow: 0 5px 10px rgba(0,0,0,.7);*/
     box-shadow: 4px 4px rgb(16,16,16)
+
+  -webkit-transition: all 0.5s ease-in-out;
+     -moz-transition: all 0.5s ease-in-out;
+      -ms-transition: all 0.5s ease-in-out;
+       -o-transition: all 0.5s ease-in-out;
+          transition: all 0.5s ease-in-out;
+
+    -webkit-transform: translateZ(0);   /* trigger hardware accel */
+    -webkit-backface-visibility: hidden;
 }
 
-.controls, .main, .sidebar {
+.main, .sidebar {
 /*    border: 6px double black;*/
 
 
@@ -68,29 +77,16 @@ h2 {
 }
 
 
+
 .main, .sidebar {
     display: inline-block;
     margin: 0; padding: 0;
 }
 
-.controls {
-    left: 0; right: 0;
-    display: none;
-}
-.controls > * {
-    padding: 8px 4px;
-}
-.controls select {
-    margin: 8px 0;
-}
-.controls button {
-    height: 22px;
-    line-height: 12px;
-    margin: 8px 0;
-}
-
 .notes { color: white; }
 
+#controls { display: inline-table; }
+#controls th, #controls td { text-align: center; }
 
 /* footer */
 footer {
@@ -117,3 +113,30 @@ footer {
 }
 footer .sig { float: left; }
 footer .copy { float: right; }
+
+
+/* main page styles */
+.content {
+    width: 330px;
+}
+
+#messages {
+    font: 8pt 'MinotaurPhatte', Arial, sans-serif;
+    background-color: black;
+    color: white;
+    padding: 10px;
+
+    position: absolute;
+    bottom: 0;
+
+    height: 133px; width: 248px;
+}
+
+.gameWindow {
+    width: 320px; height: 240px;
+    margin: 0 auto;
+}
+
+.gameWindow > canvas {
+    top: 0; left: 0;
+}

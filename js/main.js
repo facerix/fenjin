@@ -36,7 +36,6 @@ dojo.addOnLoad(function init_loader(){
 function preload() {
     window.loader = new fen.Preloader({
       images: {
-        title: "res/title.png"
       },
       modules: [
         "fen.Fenjin"

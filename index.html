@@ -3,34 +3,8 @@
 <head>
     <title>Fenjin</title>
     <!--link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico"/-->
-    <link rel="stylesheet" href="/fonts/minotaur/stylesheet.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="css/minotaur/stylesheet.css" type="text/css" charset="utf-8">
     <link rel='stylesheet' href='css/demo.css'/>
-    <style type="text/css">
-        .content {
-            width: 330px;
-        }
-
-        #messages {
-            font: 8pt 'MinotaurPhatte', Arial, sans-serif;
-            background-color: black;
-            color: white;
-            padding: 10px;
-
-            position: absolute;
-            bottom: 0;
-
-            height: 133px; width: 248px;
-        }
-
-        .gameWindow {
-            width: 320px; height: 240px;
-            margin: 0 auto;
-        }
-
-        .gameWindow > canvas {
-            top: 0; left: 0;
-        }
-    </style>
 </head>
 <body>
     <header><h1>Fenjin</h1></header>
@@ -40,12 +14,11 @@
             <canvas id="stageCanvas" width="320" height="240"></canvas>
             <canvas id="spriteCanvas" width="320" height="240"></canvas>
         </div>
+        <div class="options">
 
-        <div class="controls">
-            <span class="buttons">
-                <button onclick="nosound_onclick();">Mute</button>
-                <button onclick="game.reset();">Reset</button>
-            </span>
+
+
+
         </div>
 
         <div id="throbber"><img src="res/wait.gif" /><br/>Loading resources...</div>
@@ -53,13 +26,21 @@
         <aside class="notes">
             <p>Fenjin is intended to be a full-featured Fighting Game Engine at some point in the future.
             Currently, it's just a demo of some of the core underpinning classes, like the Preloader, Sprite animation, etc.</p>
-            <p>Controls:<br/> arrow keys to move (no physics engine yet)<br/>
-            Weak punch: A &ndash;
-            Medium punch: S &ndash;
-            Hard punch: D<br/>
-            Weak kick: Z &ndash;
-            Medium kick: X &ndash;
-            Hard kick: C
+            <p><strong>Controls:</strong> Use arrow keys to move (no physics yet)</h4>
+
+            <table id="controls">
+                <thead><th></th><th>Weak</th><th>Medium</th><th>Strong</th></thead>
+                <tbody>
+                    <tr>
+                        <td>Punches</td>
+                        <td>A</td><td>S</td><td>D</td>
+                    </tr>
+                    <tr>
+                        <td>Kicks</td>
+                        <td>Z</td><td>X</td><td>C</td>
+                    </tr>
+                </tbody>
+            </table>
         </aside>
 
     </section>
