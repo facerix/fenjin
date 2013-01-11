@@ -11,6 +11,8 @@ canvas {
     padding: 0; margin: 0;
 }
 
+#stageCanvas  { z-index: 0; }
+#spriteCanvas { z-index: 1; }
 
 /* header */
 
