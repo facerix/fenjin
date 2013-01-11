@@ -1,22 +1,6 @@
 /* main page code (basically just bootstraps Fenjin engine) */
 
 dojo.addOnLoad(function init_loader(){
-    window.noSound = false;
-    window.sounds = {
-        'bgm'    : dojo.byId('sndBGM'),
-        'item'   : dojo.byId('sndItem'),
-        'stairs' : dojo.byId('sndStairs'),
-        'win'    : dojo.byId('sndWin')
-    }
-    // hack to make background music continuous-loop
-    if (sounds.bgm && typeof sounds.bgm.loop != 'boolean') {
-        dojo.connect(sounds.bgm, "onended", function() {
-            this.currentTime = 0;
-            this.play();
-        });
-    }
-    dojo.connect(sounds.item, 'onended', snd_ended);
-    dojo.connect(sounds.stairs, 'onended', snd_ended);
 
     // before ANYTHING else, see if we can get a canvas context
     var big_canvas = dojo.byId('stageCanvas');
@@ -59,10 +43,6 @@ function init_game() {
         stageCanvasID : "stageCanvas",
         spriteCanvasID: "spriteCanvas"
     });
-    dojo.connect(game, "gameStart", game_start);
-    dojo.connect(game, "message", game_message);
-    dojo.connect(game, "getItem", game_gotItem);
-    dojo.connect(game, "gameover", game_over);
 
     // hide the "please wait" throbber
     dojo.style("throbber","display","none");
@@ -74,43 +54,3 @@ function init_game() {
     dojo.connect(window, "onkeyup", game, game.keyUp);
 }
 
-function game_start() {
-    if (!(noSound)) {
-        sounds.bgm.currentTime = 0;
-        sounds.bgm.play();
-    }
-}
-function nosound_onclick() {
-    sounds.bgm.pause();
-    window.noSound = true;
-}
-
-function game_message(msg) {
-    dojo.byId('messages').innerHTML = msg.replace(/\n/g,"<p/>");
-}
-
-function game_gotItem(itm) {
-    if (!(noSound)) {
-        sounds.bgm.pause();
-        if (itm)
-        sounds.item.play();
-    }
-}
-function snd_ended() {
-    if (!(noSound)) {
-        sounds.bgm.play();
-    }
-}
-function play_stairs_sound() {
-    if (!(noSound)) {
-        sounds.bgm.pause();
-        sounds.stairs.play();
-    }
-}
-
-function game_over() {
-    if (!(noSound)) {
-        sounds.bgm.pause();
-        sounds.win.play();
-    }
-}
